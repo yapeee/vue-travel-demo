@@ -1,30 +1,50 @@
 <template>
   <div>
-    <div class="banner">
+    <div class="banner" @click="handleGallaryClick">
       <img class="banner-img" src="http://img1.qunarzz.com/sight/source/1510/6e/1ea71e2f04e.jpg_r_640x214_aa6f091d.jpg" />
       <div class="banner-info">
         <div class="banner-tittle">
-          xxx
+          （AAAA）风景区
         </div>
         <div class="banner-number">
           <span class="iconfont banner-icon">&#xe692;</span>
-          vvv
+          39
         </div>
       </div>
     </div>
+    <common-gallary
+      :imgs="imgs"
+      v-show="showGallary"
+      @close="handleGallaryClose"
+    ></common-gallary>
   </div>
 </template>
 
 <script>
+import CommonGallary from 'common/gallary/Gallary'
 export default {
   name: 'DetailBanner',
   props: {
   },
+  components: {
+    CommonGallary
+  },
   data () {
     return {
+      showGallary: false,
+      imgs: [
+        'http://img1.qunarzz.com/sight/source/1510/6e/1ea71e2f04e.jpg_r_640x214_aa6f091d.jpg',
+        'http://img1.qunarzz.com/sight/source/1510/6e/1ea71e2f04e.jpg_r_640x214_aa6f091d.jpg'
+      ]
     }
   },
   methods: {
+    handleGallaryClick () {
+      this.showGallary = true
+    },
+    handleGallaryClose () {
+      this.showGallary = false
+    }
   }
 }
 </script>
